@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>شهریه دبستان پیشگامان</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f0f5f8;
+      margin: 0;
+      padding: 25px 15px;
+      text-align: center;
+      color: #17324d;
+    }
+    .card {
+      background: white;
+      max-width: 430px;
+      margin: 35px auto;
+      padding: 28px 18px;
+      border-radius: 20px;
+      box-shadow: 0 5px 25px #00000012;
+    }
+    h1 { font-size: 23px; color: #12618a; }
+    h2 { font-size: 17px; }
+    .number {
+      direction: ltr;
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin: 15px 0;
+      overflow-wrap: anywhere;
+    }
+    .section {
+      padding: 18px 0;
+      border-bottom: 1px solid #eee;
+    }
+    button {
+      background: #087ba8;
+      color: white;
+      border: none;
+      padding: 13px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:active { background: #07516f; }
+    .note { font-size: 14px; line-height: 2; }
+    footer { margin-top: 25px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌱 دبستان هوشمند پیشگامان بستک</h1>
+    <p>پیشگامان؛ مدرسه زندگی خردمندانه</p>
+    <h2>اطلاعات بانکی پرداخت شهریه</h2>
+
+    <div class="section">
+      <h2>💳 شماره کارت</h2>
+      <div class="number">6037991899555266</div>
+      <button onclick="copyNumber('6037991899555266')">
+        کپی شماره کارت
+      </button>
+    </div>
+
+    <div class="section">
+      <h2>🏦 شماره حساب</h2>
+      <div class="number">4150171066007</div>
+      <button onclick="copyNumber('4150171066007')">
+        کپی شماره حساب
+      </button>
+    </div>
+
+    <p class="note">
+      اولیای گرامی، لطفاً پس از واریز شهریه،
+      تصویر رسید پرداخت را به همراه نام و نام خانوادگی
+      دانش‌آموز و پایه تحصیلی جهت ثبت ارسال فرمایید.
+    </p>
+
+    <footer>
+      با سپاس از همراهی شما 🌷
+      <p><b>دبستان هوشمند پیشگامان بستک</b></p>
+    </footer>
+  </div>
+
+  <script>
+    async function copyNumber(number) {
+      try {
+        await navigator.clipboard.writeText(number);
+        alert("شماره با موفقیت کپی شد.");
+      } catch (error) {
+        const field = document.createElement("textarea");
+        field.value = number;
+        document.body.appendChild(field);
+        field.select();
+        const copied = document.execCommand("copy");
+        document.body.removeChild(field);
+        if (copied) {
+          alert("شماره کپی شد.");
+        } else {
+          alert("کپی خودکار انجام نشد. شماره را دستی کپی کنید.");
+        }
+      }
+    }
+  </script>
+</body>
+</html>
